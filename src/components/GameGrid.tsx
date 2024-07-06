@@ -5,6 +5,7 @@ import GameCardSkeleton from "./GameCardSkeleton.tsx";
 import GameCardContainer from "./GameCardContainer.tsx";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import {Link} from "react-router-dom";
 
 const GameGrid = () => {
   const {
@@ -30,7 +31,6 @@ const GameGrid = () => {
           xl: 4,
         }}
         spacing={6}
-        padding="10px"
       >
         {isLoading &&
           skeletons.map((skeleton) => (
@@ -42,7 +42,9 @@ const GameGrid = () => {
           <React.Fragment key={index}>
             {page.results.map((game) => (
               <GameCardContainer key={game.id}>
+                <Link to={`/games/${game.slug}`}>
                 <GameCard game={game} />
+                </Link>
               </GameCardContainer>
             ))}
           </React.Fragment>
