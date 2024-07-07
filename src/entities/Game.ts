@@ -1,6 +1,8 @@
-import {Platform} from "./Platform.ts";
+import Platform from "./Platform.ts";
+import Genre from "./Genre.ts";
+import Publisher from "./Publisher.ts";
 
-export interface Game {
+export default interface Game {
   id: number;
   name: string;
   background_image: string;
@@ -8,5 +10,7 @@ export interface Game {
   metacritic: number;
   rating_top: number;
   slug: string;
-  description_raw: string
+  description_raw: string;
+  genres: Genre[];
+  publishers: Publisher[]
 }
