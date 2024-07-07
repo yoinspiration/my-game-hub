@@ -13,13 +13,12 @@ import useGameQueryStore from "../store.ts";
 
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();
-
+  const selectedGenreId = useGameQueryStore(s => s.gameQuery.genreId)
+  const setSelectedGenreId = useGameQueryStore(s => s.setGenreId)
+  
   if (error) return null;
 
   if (isLoading) return <Spinner />;
-  
-  const selectedGenreId = useGameQueryStore(s => s.gameQuery.genreId)
-  const setSelectedGenreId = useGameQueryStore(s => s.setGenreId)
 
   return (
     <List>
