@@ -8,9 +8,9 @@ interface Props {
 const GameTrailer = ({ gameId }: Props) => {
   const { data, error, isLoading } = useTrailers(gameId);
   
-  if (isLoading) return <Spinner />
-  
   if (error) return <Text>{error.message}</Text>;
+  
+  if (isLoading) return <Spinner />
   
   const first = data?.results[0]
   if (!first) return null
